@@ -1,0 +1,51 @@
+<testng-results>
+  <reporter-output>
+  </reporter-output>
+  <suite name="HTTPRequestTestSuit" duration-ms="6561" started-at="2015-09-16T17:40:09Z" finished-at="2015-09-16T17:40:15Z">
+    <groups>
+    </groups>
+    <test name="HTTPReqGenTest" duration-ms="6561" started-at="2015-09-16T17:40:09Z" finished-at="2015-09-16T17:40:15Z">
+      <class name="apitest.trail.HTTPReqGenTest">
+        <test-method status="PASS" signature="setup(java.lang.String)" name="setup" is-config="true" duration-ms="1183" started-at="2015-09-16T17:40:09Z" finished-at="2015-09-16T17:40:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[D:\\JAVA\\ApiTest.xlsx]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="api_test(java.lang.String, java.lang.String)" name="API Test" duration-ms="3916" started-at="2015-09-16T17:40:10Z" description="ReqGenTest" finished-at="2015-09-16T17:40:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[TestFunction A]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="api_test(java.lang.String, java.lang.String)" name="API Test" duration-ms="1259" started-at="2015-09-16T17:40:14Z" description="ReqGenTest" finished-at="2015-09-16T17:40:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[TestFunction B]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method status="PASS" signature="teardown()" name="teardown" is-config="true" duration-ms="141" started-at="2015-09-16T17:40:15Z" finished-at="2015-09-16T17:40:15Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

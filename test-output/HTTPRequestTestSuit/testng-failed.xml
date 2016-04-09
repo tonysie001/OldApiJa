@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" skipfailedinvocationCounts="false" verbose="1" name="Failed suite [HTTPRequestTestSuit]" junit="false" parallel="false" annotations="JDK" data-provider-thread-count="10">
+  <parameter name="workBook" value="D:\\JAVA\\ApiTest.xlsx"/>
+  <test name="HTTPReqGenTest(failed)" junit="false" parallel="false" annotations="JDK">
+    <parameter name="workBook" value="D:\\JAVA\\ApiTest.xlsx"/>
+    <classes>
+      <class name="apitest.trail.HTTPReqGenTest">
+        <methods>
+          <include name="setup"/>
+          <include name="api_test" invocation-numbers="0 1 2"/>
+          <include name="teardown"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
