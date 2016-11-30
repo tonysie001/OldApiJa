@@ -2,6 +2,7 @@
 Host: <<host>>
 Accept: <<Accept>>
 Content-Type: <<Content-Type>>
-Cookie: <<Cookie>>
+
+JSESSIONID: <<JSESSIONID>>
 
 <<Body>>

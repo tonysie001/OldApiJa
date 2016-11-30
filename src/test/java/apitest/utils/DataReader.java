@@ -49,7 +49,7 @@ public class DataReader {
     this.byRowKey = has_key_column;
     
     try {
-    
+    //将表头放入headers List中，表头的value即为列名
       if(byColumnName) {
         myRow = sheet.getRow(0);
         for(Cell cell: myRow) {
@@ -58,31 +58,32 @@ public class DataReader {
         size = 1;
       }
   
-      for(; (myRow = sheet.getRow(size)) != null; size++ ) {
+      for(; (myRow = sheet.getRow(size)) != null; size++ ) {//遍历每一行（从第二行开始，第一行是表头）
   
         myList = new HashMap<String, String>();
   
         if(byColumnName) {
-          for(int col = 0; col < headers.size(); col++ ) {
+          for(int col = 0; col < headers.size(); col++ ) {//headers.size是列数
             if(col < myRow.getLastCellNum()) {
               myList.put(headers.get(col), getSheetCellValue(myRow.getCell(col))); // myRow.getCell(col).getStringCellValue());
             } else {
               myList.put(headers.get(col), "");
             }
           }
-        } else {
+        } else {//如果没有表头，就直接记录
           for(int col = 0; col < myRow.getLastCellNum(); col++ ) {
             myList.put(Integer.toString(col), getSheetCellValue(myRow.getCell(col)));
           }
-        }
+        }//myList是有着列名为key,列的值为value的一个list（如果没有表头，就为列数为key,值为value的一个list）
   
         if(byRowKey) {
-          if(myList.size() == 2 && key_column == 0) {
-            map.put(getSheetCellValue(myRow.getCell(key_column)), new RecordHandler(myList.get(1)));
-          } else if(myList.size() == 2 && key_column == 1) {
-            map.put(getSheetCellValue(myRow.getCell(key_column)), new RecordHandler(myList.get(0)));
+          if(myList.size() == 2 && key_column == 0) {//若表格只有两列，且标记key的列为第0列
+            map.put(getSheetCellValue(myRow.getCell(key_column)), new RecordHandler(myList.get(1)));//则取第二列为RecordHandler
+          } else if(myList.size() == 2 && key_column == 1) {//若表格只有两列，且标记key的列为第1列
+            map.put(getSheetCellValue(myRow.getCell(key_column)), new RecordHandler(myList.get(0)));//则取第一列为RecordHandler
           } else {
-            map.put(getSheetCellValue(myRow.getCell(key_column)), new RecordHandler(myList));
+            map.put(getSheetCellValue(myRow.getCell(key_column)), new RecordHandler(myList));//主场景。
+            //map为key为key_column列的值（一般可设为第0列），value为参数为myList的RecordHandler
           }
         } else {
           map.put(Integer.toString(size), new RecordHandler(myList));

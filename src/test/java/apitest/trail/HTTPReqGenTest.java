@@ -25,6 +25,7 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -64,6 +65,7 @@ public class HTTPReqGenTest implements ITest {
     
     @BeforeTest
     @Parameters("workBook")
+ 
     public void setup(String path) {
         filePath = path;
         try {
@@ -126,7 +128,7 @@ public class HTTPReqGenTest implements ITest {
         HTTPReqGen myReqGen = new HTTPReqGen();
 
         try {
-            myReqGen.generate_request(template, myInputData.get_record(ID));
+            myReqGen.generate_request(template, myInputData.get_record(ID));//拼成request body
             response = myReqGen.perform_request();
         } catch (Exception e) {
             Assert.fail("Problem using HTTPRequestGenerator to generate response: " + e.getMessage());

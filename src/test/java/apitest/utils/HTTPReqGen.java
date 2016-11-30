@@ -159,7 +159,7 @@ public class HTTPReqGen {
       // Full call string for RestAssured will be concatenation of call
       // host and call suffix
       call_string = call_host + call_suffix;
-
+      System.out.print(call_string);
       // Remaining lines will contain headers, until the read line is
       // empty
       line = in.readLine();
@@ -173,6 +173,18 @@ public class HTTPReqGen {
         line = in.readLine();
       }
       System.out.print(headers);
+      
+      line = in.readLine();
+      while(line != null && !line.equals("")) {
+
+        String lineP1 = line.substring(0, line.indexOf(":")).trim();
+        String lineP2 = line.substring(line.indexOf(" "), line.length()).trim();
+
+        cookie_list.put(lineP1, lineP2);
+
+        line = in.readLine();
+      }
+      System.out.print(cookie_list);
       // If read line is empty, but next line(s) have data, create body
       // from them
       if(line != null && line.equals("")) {

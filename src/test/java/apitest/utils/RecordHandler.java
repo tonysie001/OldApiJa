@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * 提供RecordHandler单个值，list,map为参数的Recordhandler 的get set方法。并提供has 和remove方法
+ * @author jinhua
+ *
+ */
 public class RecordHandler {
 
   private enum RecordType {
